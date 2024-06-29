@@ -1,6 +1,6 @@
 from fastapi import APIRouter, status, Depends
 from app.schemas.models import ParamsForParsing, Vacancy, VacancyGet
-from app.storage.db import get_session, VacanciesTable
+from app.storage.db import get_session, VacanciesTable, Base, engine
 from sqlalchemy.orm import Session
 import requests
 
@@ -24,13 +24,20 @@ def search_words_to_param_text(name, company, description):
     return text
 
 
+@router.get('/drop')
+async def recreate_db():
+    Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
+    return {'message': 'recreated database'}
+
+
 @router.get('/', response_model=list[VacancyGet])
 async def get_all_vacancies(session: Session = Depends(get_session)):
     return session.query(VacanciesTable).all()
 
 
 @router.post('/parse', status_code=status.HTTP_201_CREATED)
-async def start_parsing(params: ParamsForParsing, session: Session = Depends(get_session)):
+async def parse_and_create_vacancies(params: ParamsForParsing, session: Session = Depends(get_session)):
     text = search_words_to_param_text(params.name_text, params.company_text, params.description_text)
     for i in range(19):
         vacancies_get_request_params = {
