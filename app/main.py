@@ -1,19 +1,14 @@
 from fastapi import FastAPI
-from app.routing.vacancies import router as vacancies
-from app.storage.db import metadata, engine, database
+from app.routing.vacancies import router as vacancies_router
+from app.storage.db import Base, engine
 
-metadata.create_all(engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-
-@app.on_event('startup')
-async def startup():
-    await database.connect()
+app.include_router(vacancies_router, prefix='/vacancies', tags=['Vacancies'])
 
 
-@app.on_event('shutdown')
-async def shutdown():
-    await database.disconnect()
-
-app.include_router(vacancies)
+@app.get('/')
+async def hello():
+    return {'message': 'hello'}
