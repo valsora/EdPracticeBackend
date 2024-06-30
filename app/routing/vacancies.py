@@ -36,8 +36,9 @@ async def get_all_vacancies(session: Session = Depends(get_session)):
     return session.query(VacanciesTable).all()
 
 
-@router.post('/parse', status_code=status.HTTP_201_CREATED)
+@router.post('/parse', status_code=status.HTTP_201_CREATED, response_model=list[Vacancy])
 async def parse_and_create_vacancies(params: ParamsForParsing, session: Session = Depends(get_session)):
+    parsed_vacancies = []
     text = search_words_to_param_text(params.name_text, params.company_text, params.description_text)
     for i in range(19):
         vacancies_get_request_params = {
@@ -63,6 +64,10 @@ async def parse_and_create_vacancies(params: ParamsForParsing, session: Session 
                     experience=str(vac['experience']['name']),
                     employment=str(vac['employment']['name'])
                 )
+                if vac['salary'] is not None:
+                    vacancy.salary_from = vac['salary']['from']
+                    vacancy.salary_to = vac['salary']['to']
+                parsed_vacancies.append(vacancy)
                 session.add(VacanciesTable(**vacancy.dict()))
     session.commit()
-    return {'message': 'parsing is done, added vacancies to db'}
+    return parsed_vacancies

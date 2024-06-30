@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddda10d5-72e5-413e-8c9a-9edc31b472c9" name="Changes" comment="db: changed alchemy from core to orm">
+    <list default="true" id="ddda10d5-72e5-413e-8c9a-9edc31b472c9" name="Changes" comment="small changes for names">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routing/vacancies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routing/vacancies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schemas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/storage/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/storage/db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,14 +121,34 @@
       <option name="project" value="LOCAL" />
       <updated>1719677284991</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="small changes for names">
+      <option name="closed" value="true" />
+      <created>1719677942421</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719677942421</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="third one" />
     <MESSAGE value="fourth" />
     <MESSAGE value="fifth" />
     <MESSAGE value="db: changed alchemy from core to orm" />
-    <option name="LAST_COMMIT_MESSAGE" value="db: changed alchemy from core to orm" />
+    <MESSAGE value="small changes for names" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes for names" />
   </component>
 </project>

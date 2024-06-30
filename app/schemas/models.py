@@ -14,6 +14,8 @@ class ParamsForParsing(BaseModel):
 class Vacancy(BaseModel):
     vac_id: Optional[str] = None
     job_name: Optional[str] = None
+    salary_from: Optional[int] = None
+    salary_to: Optional[int] = None
     company_name: Optional[str] = None
     requirement: Optional[str] = None
     responsibility: Optional[str] = None
