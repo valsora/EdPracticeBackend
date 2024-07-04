@@ -40,7 +40,7 @@ async def get_all_vacancies(session: Session = Depends(get_session)):
 async def parse_and_create_vacancies(params: ParamsForParsing, session: Session = Depends(get_session)):
     parsed_vacancies = []
     text = search_words_to_param_text(params.name_text, params.company_text, params.description_text)
-    for i in range(19):
+    for i in range(20):
         vacancies_get_request_params = {
             'page': i,
             'per_page': 100,
