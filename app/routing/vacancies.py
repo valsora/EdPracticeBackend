@@ -67,7 +67,10 @@ async def parse_and_create_vacancies(params: ParamsForParsing, session: Session 
                 if vac['salary'] is not None:
                     vacancy.salary_from = vac['salary']['from']
                     vacancy.salary_to = vac['salary']['to']
-                parsed_vacancies.append(vacancy)
+                similars = session.query(VacanciesTable).filter(VacanciesTable.vac_id == vacancy.vac_id).all()
+                if len(similars) == 1:
+                    session.delete(session.query(VacanciesTable).filter(VacanciesTable.vac_id == similars[0].vac_id).one())
                 session.add(VacanciesTable(**vacancy.dict()))
+                parsed_vacancies.append(vacancy)
     session.commit()
     return parsed_vacancies

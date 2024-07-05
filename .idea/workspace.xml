@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddda10d5-72e5-413e-8c9a-9edc31b472c9" name="Changes" comment="added cors because POST didnt work">
+    <list default="true" id="ddda10d5-72e5-413e-8c9a-9edc31b472c9" name="Changes" comment="noticed than max vacs is 1900 instead of 2000 hh limit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routing/vacancies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routing/vacancies.py" afterDir="false" />
     </list>
@@ -143,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720096628568</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="noticed than max vacs is 1900 instead of 2000 hh limit">
+      <option name="closed" value="true" />
+      <created>1720134032535</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720134032535</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +173,7 @@
     <MESSAGE value="small changes for names" />
     <MESSAGE value="added salary" />
     <MESSAGE value="added cors because POST didnt work" />
-    <option name="LAST_COMMIT_MESSAGE" value="added cors because POST didnt work" />
+    <MESSAGE value="noticed than max vacs is 1900 instead of 2000 hh limit" />
+    <option name="LAST_COMMIT_MESSAGE" value="noticed than max vacs is 1900 instead of 2000 hh limit" />
   </component>
 </project>
