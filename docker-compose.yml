@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  back:
+    container_name: 'my_back'
+    build: ./
+    depends_on:
+      - db
+    volumes:
+      - .app:/src/app
+    ports:
+      - 8000:8000
+
+  db:
+    container_name: 'my_db'
+    image: postgres
+    environment:
+      - POSTGRES_DB=practice_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=psql
+    ports:
+      - 5432:5432
+
+  front:
+    container_name: 'my_front'
+    build: ../../vscodeprojects/frontend_ed_pract/
+    ports:
+      - 3000:3000
